@@ -22,7 +22,7 @@ def thread_list(request):
     return render(request, 'post/thread_list.html', {'threads': threads})
 
 def thread_detail(request, id):
-    thread = get_object_or_404(thread, id=id)
+    thread = get_object_or_404(Thread, id=id)
     posts = Post.objects.filter(thread=thread)
     return render(request, 'post/thread_detail.html', {'thread': thread, 'posts': posts})
 
