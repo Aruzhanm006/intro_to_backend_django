@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Notes</h2>
+    <a href="{% url 'note_create' %}" class="btn btn-primary">Create New Note</a>
+    <ul class="list-group mt-3">
+        {% for note in notes %}
+            <li class="list-group-item">
+                <a href="{% url 'note_detail' note.id %}">{{ note.title }}</a>
+                <a href="{% url 'note_update' note.id %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'note_delete' note.id %}" class="btn btn-sm btn-danger">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
